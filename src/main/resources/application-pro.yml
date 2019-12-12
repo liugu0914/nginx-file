@@ -1,0 +1,20 @@
+server:
+  port: 3000 #服务端口
+spring:
+  datasource:
+    url:  jdbc:mysql://localhost:3306/lyc?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    username:  root
+    password:  root
+    hikari:
+      connection-test-query: select 1
+      auto-commit: true
+      pool-name: DB-lyc
+      connection-timeout: 10000
+mybatis:
+  mapper-locations: classpath:com/lyc/dao/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+nginx:
+  rootPath: C:/nginx-tmp
+  imgUrl: http://www.jiopeel.com/file

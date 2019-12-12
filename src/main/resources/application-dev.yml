@@ -1,0 +1,31 @@
+server:
+  port: 3000 #服务端口
+spring:
+  datasource:
+#    url: jdbc:h2:mem:dbtest
+#    username: sa
+#    password: admin
+#    driver-class-name: org.h2.Driver
+#    schema: classpath:db/schema.sql
+    url:  jdbc:mysql://localhost:3306/lyc?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    username:  root
+    password:  admin123
+    hikari:
+      connection-test-query: select 1
+      auto-commit: true
+      pool-name: DB-lyc
+      connection-timeout: 10000
+#  h2:
+#    console:
+#      path: /h2
+#      settings:
+#        web-allow-others: true
+#      enabled: true
+mybatis:
+  mapper-locations: classpath:com/lyc/dao/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+nginx:
+  rootPath: F:/nginx-tmp
+  imgUrl: http://127.0.0.1/file

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileResult">
+    <insert id="save" parameterType="com.lyc.sys.FileResult"  useGeneratedKeys="true" >
+        insert into t_file_result(id,url,size,filename,md5,type,createdt,updatedt) values
+        (#{id},#{url},#{size},#{filename},#{md5},#{type},#{createdt},#{updatedt})
+    </insert>
+
+    <select id="getlist" parameterType="com.lyc.sys.FileResult" >
+       select  * from  t_file_result
+    </select>
+
+    <select id="getFilebyMD5" parameterType="java.lang.String" resultType="com.lyc.sys.FileResult">
+       select  * from  t_file_result  where  t_file_result.md5=#{_pararmer}
+    </select>
+</mapper>
